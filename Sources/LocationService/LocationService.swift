@@ -26,7 +26,7 @@ public class LocationService: NSObject {
         }
     }
 
-    func requestWhenUseAuthorization() -> Future<Void, LocationError> {
+    public func requestWhenUseAuthorization() -> Future<Void, LocationError> {
         guard locationManager.authorizationStatus == .notDetermined else {
             return Future { $0(.success(())) }
         }
@@ -37,7 +37,7 @@ public class LocationService: NSObject {
         return future
     }
     
-    func requestLocation() -> Future<CLLocation, LocationError> {
+    public func requestLocation() -> Future<CLLocation, LocationError> {
         guard locationManager.authorizationStatus == .authorizedWhenInUse
                 || locationManager.authorizationStatus == .authorizedAlways else {
                     return Future { $0(.failure(.unauthorized))}

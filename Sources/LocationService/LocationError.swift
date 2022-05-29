@@ -6,7 +6,7 @@
 //
 
 import Foundation
-enum LocationError: Error {
+public enum LocationError: Error {
     case unauthorized
     case unableToDetermineLocation
 }
